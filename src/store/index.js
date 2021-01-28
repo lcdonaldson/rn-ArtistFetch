@@ -3,12 +3,12 @@ import rootReducer from '../actions';
 
 
 const initialState = {};
-const enhancers = [];
+// const enhancers = []; // add if needed.
 
 const store = createStore(
     rootReducer,
     initialState,
-    enhancers
+    // enhancers
 );
 
 export default store

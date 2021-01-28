@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot tests renders correctly when there are no items 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "lightblue",
+      "borderColor": "white",
+      "borderWidth": 2,
+      "display": "flex",
+      "flex": 1,
+      "marginBottom": 10,
+      "padding": 10,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "borderBottomColor": "teal",
+        "borderBottomWidth": 2,
+        "color": "#000",
+        "display": "flex",
+        "fontSize": 30,
+        "marginBottom": 10,
+        "width": "100%",
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "width": "50%",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "fontSize": 16,
+            "paddingBottom": 10,
+          }
+        }
+      >
+        Name:  
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontSize": 16,
+            "paddingBottom": 10,
+          }
+        }
+      >
+        Cost:  
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "width": "50%",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "fontSize": 16,
+            "paddingBottom": 10,
+          }
+        }
+      >
+        Genre:  
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontSize": 16,
+            "paddingBottom": 10,
+          }
+        }
+      >
+        Released on:  
+      </Text>
+    </View>
+  </View>
+</View>
+`;
