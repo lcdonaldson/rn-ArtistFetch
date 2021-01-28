@@ -26,16 +26,15 @@ export default class App extends React.Component {
       itemList: []
     };
   }
-  onPressFunction = () => {
+  handleClick = () => {
     let artist = 'Elvis'
-    axios.get(`https://itunes.apple.com/search?term="${artist}"`)
+    axios.get(`http://itunes.apple.com/search?term=${artist}`)
     .then(response => {
-        this.setState({
-          itemList: response.data.results
-        });
-        // console.log("Data", this.state.itemList);
-      })
-      .catch(error => console.log(error));
+      this.setState({
+        itemList: response.data.results
+      });
+    })
+    .catch(error => console.log(error));
   }
   render() {
     {console.log('MYDATA', this.state.itemList)}
@@ -47,22 +46,34 @@ export default class App extends React.Component {
             <View>
               <Pressable 
               style={styles.btnLayout} 
-              onPress={this.onPressFunction}
+              onPress={this.handleClick}
               >
                 <Text style={styles.btnText}>Show Records</Text>
               </Pressable> 
             </View>
             <View style={styles.listWrapper}>
-              <Text>SANITY TEXT 1</Text>
               <FlatList
                 data={this.state.itemList}
                 
                 renderItem={({item}) => {
-                  <Text style={styles.listText}>{item}</Text>;
+                  return (
+                    <View style={styles.infoWrapper}>
+                      <Text style={styles.primaryText}>{item.artistName}</Text>
+                      <View style={styles.row}>
+                        <View style={styles.flexLeft}>
+                          <Text style={styles.lText}>Title:  {item.trackName}</Text>
+                          <Text style={styles.lText}>Cost:  {item.trackPrice}</Text>
+                        </View>
+                        <View style={styles.flexRight}>
+                          <Text style={styles.rText}>Genre:  {item.primaryGenreName}</Text>
+                          <Text style={styles.rText}>Released on:  {item.releaseDate}</Text>
+                        </View>
+                      </View>
+                    </View>
+                  )
                 }}
-                keyExtractor={item => item.data.results}
+                keyExtractor={item => item.trackId}
               />
-              <Text>SANITY TEXT 2</Text>
             </View>
           </View>
         </SafeAreaView>
@@ -82,14 +93,40 @@ const styles = StyleSheet.create({
   listWrapper: {
     padding: 12,
     marginTop: 25,
-    backgroundColor: '#ccc'
   },
-  listText: {
-    fontSize: 20, 
-    color: '#000', 
-    width: 200, 
-    height: 50
+  infoWrapper: {
+    backgroundColor: 'lightblue',
+    borderColor: 'white',
+    borderWidth: 2,
+    flex: 1,
+    display: 'flex',
+    padding: 10
   },
+  primaryText: {
+    fontSize: 30, 
+    color: '#000',
+    width: '100%',
+    display: 'flex',
+    borderBottomColor: 'teal',
+    borderBottomWidth: 2,
+    marginBottom: 10
+  },
+  row: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  flexLeft: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '50%'
+  },
+  flexRight: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '50%'
+  },
+  lText: {paddingBottom: 10},
+  rText: {paddingBottom: 10},
   btnText: {
     fontSize: 20, 
     color: '#fff', 
