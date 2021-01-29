@@ -10,7 +10,8 @@ import {
   StatusBar,
   Pressable,
   FlatList,
-  ActivityIndicator
+  ActivityIndicator,
+  TextInput
 } from 'react-native';
 
 export default class App extends React.Component {
@@ -18,13 +19,14 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       itemList: [],
-      isLoading: false
+      isLoading: false,
+      inputValue: ""
     };
   }
 
   handleClick = async () => {
     this.setState({ isLoading: true });
-    let artist = 'Elvis';
+    let artist = this.state.inputValue;
     await axios.get(`http://itunes.apple.com/search?term=${artist}`)
     .then(response => {
       this.setState({
@@ -49,6 +51,7 @@ export default class App extends React.Component {
         <SafeAreaView>
           <View>
             <View>
+              <TextInput placeholder="Artist name" onChangeText={(inputValue) => this.setState({inputValue})} style={styles.input}/>
               <Pressable 
                 style={styles.btnLayout} 
                 onPress={this.handleClick}
@@ -98,6 +101,13 @@ const styles = StyleSheet.create({
     fontSize: 20, 
     color: '#fff', 
     textAlign: 'center'
+  },
+  input: {
+    alignSelf: 'center',
+    width: 200,
+    minHeight: 20,
+    borderBottomColor: '#000000',
+    borderBottomWidth: 1
   }
 });
 
