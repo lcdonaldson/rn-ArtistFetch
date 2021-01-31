@@ -87,7 +87,7 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   btnLayout: {
-    backgroundColor: 'blue', 
+    backgroundColor: 'green', 
     minWidth: 320, 
     padding: 5, 
     alignSelf: 'center', 

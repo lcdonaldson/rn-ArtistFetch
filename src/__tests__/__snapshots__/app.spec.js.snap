@@ -6,6 +6,22 @@ exports[`Snapshot tests renders correctly when there are no items 1`] = `
 >
   <View>
     <View>
+      <TextInput
+        allowFontScaling={true}
+        onChangeText={[Function]}
+        placeholder="Artist name"
+        rejectResponderTermination={true}
+        style={
+          Object {
+            "alignSelf": "center",
+            "borderBottomColor": "#000000",
+            "borderBottomWidth": 1,
+            "minHeight": 20,
+            "width": 200,
+          }
+        }
+        underlineColorAndroid="transparent"
+      />
       <View
         accessible={true}
         focusable={true}
@@ -21,7 +37,7 @@ exports[`Snapshot tests renders correctly when there are no items 1`] = `
         style={
           Object {
             "alignSelf": "center",
-            "backgroundColor": "blue",
+            "backgroundColor": "green",
             "marginTop": 25,
             "minWidth": 320,
             "padding": 5,
