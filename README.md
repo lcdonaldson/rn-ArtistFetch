@@ -1,3 +1,3 @@
 # rn-ArtistFetch
 
-## This simple app should fetch and display iTunes Artist data from an axios call with some simple styling.
+## This simple app fetches and displays iTunes Artist data from an axios call with some simple styling.
